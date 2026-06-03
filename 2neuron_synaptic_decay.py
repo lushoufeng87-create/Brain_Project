@@ -38,7 +38,7 @@ for t in range(time_steps):
     #neuron 2 receives current from synapse
     I2 = syn12
 
-    # Update Neuron 1
+    #update Neuron 1
     v1 += 0.04 * v1**2 + 5*v1 + 140 - u1 + I1
     u1 += a * (b*v1 - u1)
 
