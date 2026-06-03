@@ -1,4 +1,4 @@
-#1 neuron → 2 connected neurons → small network → learning → sensory inputs → simple behaviors
+#2 connected neurons → small network → learning → sensory inputs → simple behaviors
 
 import matplotlib.pyplot as plt
 
