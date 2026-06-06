@@ -90,6 +90,20 @@ for t in range(time_steps):
     if spike1:
         syn12 += w12
 
+    # neuron 2
+
+    v2 += 0.04 * v2**2 + 5 * v2 + 140 - u2 + I2
+    u2 += a * (b * v2 - u2)
+
+    if v2 >= 30:
+        v2_trace.append(30)
+
+        v2 = c
+        u2 += d
+    else:
+        v2_trace.append(v2)
+
+
     # neuron 3
 
     v3 += 0.04 * v3**2 + 5 * v3 + 140 - u3 + I3 
@@ -110,18 +124,6 @@ for t in range(time_steps):
     if spike3:
         syn32 += w32
 
-    # neuron 2
-
-    v2 += 0.04 * v2**2 + 5 * v2 + 140 - u2 + I2
-    u2 += a * (b * v2 - u2)
-
-    if v2 >= 30:
-        v2_trace.append(30)
-
-        v2 = c
-        u2 += d
-    else:
-        v2_trace.append(v2)
 
     # Record synaptic currents
     syn12_trace.append(syn12)
