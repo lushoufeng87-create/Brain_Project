@@ -176,6 +176,20 @@ for t in range(time_steps):
         np.mean(np.abs(W))
     )
 
+# DIAGNOSTICS
+
+print("\nSpike Counts")
+print("----------------")
+
+for i in range(N):
+    print(f"Neuron {i}: {int(spike_counts[i])}")
+
+print("\nAverage Weight:")
+print(np.mean(np.abs(W)))
+
+print("\nMaximum Weight:")
+print(np.max(np.abs(W)))
+
 # RESULTS
 
 plt.figure(figsize=(12, 8))
@@ -202,16 +216,3 @@ plt.xlabel("Time Step")
 plt.tight_layout()
 plt.show()
 
-# DIAGNOSTICS
-
-print("\nSpike Counts")
-print("----------------")
-
-for i in range(N):
-    print(f"Neuron {i}: {int(spike_counts[i])}")
-
-print("\nAverage Weight:")
-print(np.mean(np.abs(W)))
-
-print("\nMaximum Weight:")
-print(np.max(np.abs(W)))
