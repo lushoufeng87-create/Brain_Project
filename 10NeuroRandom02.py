@@ -1,3 +1,7 @@
+# randomized Izhikevich network with hebbian Learning
+# heterogeneity added
+# transmission delays added
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -27,15 +31,15 @@ u = b * v
 
 W = np.zeros((N,N))
 
-mask = np.random.random((N,N)) < 0.35
+mask = np.random.random((N,N)) < 0.4
 
 W[mask] = np.random.normal(8, 2, np.sum(mask))
 
 # Remove self-connections
 np.fill_diagonal(W, 0)
 
-# Last 3 neurons inhibitory
-for i in [7, 8, 9]:
+# Last 2 neurons inhibitory
+for i in [8, 9]:
     W[i, :] = -0.5 * np.abs(W[i, :])
 
 # TRANSMISSION DELAYS
