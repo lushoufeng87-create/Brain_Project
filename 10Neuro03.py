@@ -9,9 +9,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# =====================================
 # PARAMETERS
-# =====================================
 
 N = 10
 
@@ -23,9 +21,7 @@ decay = 0.97
 learning_rate = 0.001
 max_weight = 10
 
-# =====================================
 # HETEROGENEOUS IZHIKEVICH NEURONS
-# =====================================
 
 a = np.random.normal(0.02, 0.002, N)
 b = np.random.normal(0.20, 0.01, N)
@@ -36,9 +32,7 @@ d = np.full(N, 8.0)
 v = c.copy()
 u = b * v
 
-# =====================================
 # STRUCTURED CONNECTIVITY
-# =====================================
 
 W = np.zeros((N, N))
 
@@ -84,9 +78,7 @@ W[9,7] = -4
 
 W[9,8] = -3
 
-# =====================================
 # DELAYS
-# =====================================
 
 delays = np.ones((N,N), dtype=int)
 
@@ -105,17 +97,13 @@ delays[5,8] = 3
 delays[6,8] = 3
 delays[7,8] = 3
 
-# =====================================
 # EVENT QUEUE
-# =====================================
 
 event_queue = [[] for _ in range(time_steps + 100)]
 
 syn_current = np.zeros(N)
 
-# =====================================
 # RECORDING
-# =====================================
 
 spike_times = []
 spike_neurons = []
@@ -126,9 +114,7 @@ avg_weight_trace = []
 
 weight_history = []
 
-# =====================================
 # SIMULATION
-# =====================================
 
 hebb_updates = 0
 
@@ -229,9 +215,22 @@ for t in range(time_steps):
 
     )
 
-# =====================================
+# DIAGNOSTICS
+
+print("\nSpike Counts")
+
+for i in range(N):
+    print(f"Neuron {i}: {int(spike_counts[i])}")
+
+print("\nFinal Weights")
+print(np.round(W,2))
+
+print(avg_weight_trace[0])
+print(avg_weight_trace[-1])
+
+print("Hebbian updates:", hebb_updates)
+
 # PLOTS
-# =====================================
 
 plt.figure(figsize=(12,8))
 
@@ -260,20 +259,3 @@ plt.figure()
 plt.plot(weight_history)
 plt.title("Weight 0→2")
 plt.show()
-
-# =====================================
-# DIAGNOSTICS
-# =====================================
-
-print("\nSpike Counts")
-
-for i in range(N):
-    print(f"Neuron {i}: {int(spike_counts[i])}")
-
-print("\nFinal Weights")
-print(np.round(W,2))
-
-print(avg_weight_trace[0])
-print(avg_weight_trace[-1])
-
-print("Hebbian updates:", hebb_updates)
