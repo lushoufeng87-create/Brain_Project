@@ -16,7 +16,7 @@ decay = 0.97
 learning_rate = 0.001
 max_weight = 10
 
-# HETEROGENEOUS NEURONS
+# HETEROGENEOUS NEURON PARAMETERS
 
 a = np.random.normal(0.02, 0.002, N)
 b = np.random.normal(0.20, 0.01, N)
