@@ -132,8 +132,6 @@ spike_counts = np.zeros(N)
 
 avg_weight_trace = []
 
-weight_02 = []
-
 stdp_updates = 0
 
 # =====================================
@@ -279,8 +277,6 @@ for t in range(time_steps):
         np.mean(np.abs(W[W != 0]))
     )
 
-    weight_02.append(W[0,2])
-
 # =====================================
 # DIAGNOSTICS
 # =====================================
@@ -300,23 +296,50 @@ print(np.max(np.abs(W - initial_W)))
 # PLOTS
 # =====================================
 
-plt.figure(figsize=(12,8))
+plt.figure(figsize=(8, 8))
 
-plt.subplot(2,1,1)
+# ---------------------
+# Spike raster
+# ---------------------
+
+plt.subplot(3,1,1)
+
 plt.scatter(
     spike_times,
     spike_neurons,
-    s=4
+    s=3
 )
+
 plt.ylabel("Neuron")
 plt.title("Spike Raster")
 
-plt.subplot(2,1,2)
+# ---------------------
+# Average weight
+# ---------------------
+
+plt.subplot(3,1,2)
+
 plt.plot(avg_weight_trace)
-plt.ylabel("Average Weight")
-plt.xlabel("Timesteps")
-plt.title("Average Synaptic Weight Over Time")
+
+plt.ylabel("Avg Weight")
+plt.title("Average Synaptic Strength")
+
+# ---------------------
+# Weight histogram
+# ---------------------
+
+plt.subplot(3,1,3)
+
+active_weights = W[W != 0]
+
+plt.hist(
+    active_weights,
+    bins=10
+)
+
+plt.xlabel("Weight")
+plt.ylabel("Count")
+plt.title("Final Weight Distribution")
 
 plt.tight_layout()
 plt.show()
-
