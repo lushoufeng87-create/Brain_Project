@@ -1,7 +1,7 @@
 # systemic manual weights are added, structured, predictable model
 # organized layers for neurons, mimicking a tiny cortical circuit
 # hebbian updates = 0. learning rule not triggered, because
-# random synchronization was deliberately added, hebbian learning only works
+# random synchronization was deliberately added, yet hebbian learning only works
 # when neurons fire together. 
 
 #new learning rule is required. 
@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 
 # PARAMETERS
 
-N = 10
+N = 10 # 10 neurons
 
 time_steps = 3000
-dt = 0.5
+dt = 0.5 # splitting computation into half steps for better numerical stability
 
 decay = 0.97
 
@@ -23,19 +23,24 @@ max_weight = 10
 
 # HETEROGENEOUS IZHIKEVICH NEURONS
 
-a = np.random.normal(0.02, 0.002, N)
-b = np.random.normal(0.20, 0.01, N)
+a = np.random.normal(0.02, 0.002, N) # mean, std, size
+# biologically, smaller a means slower recovery, larger means faster recovery.
 
-c = np.full(N, -65.0)
-d = np.full(N, 8.0)
+b = np.random.normal(0.20, 0.01, N) # mean, std, size
+# higher b means  stronger coupling between voltage and recovery
 
-v = c.copy()
+c = np.full(N, -65.0) # reset voltage after spike
+d = np.full(N, 8.0) # increase in recovery variable after spike
+# c, d are consistent for all 10 neurons just to control variability for now
+
+v = c.copy() # independent array for voltage
 u = b * v
 
 # STRUCTURED CONNECTIVITY
 
-W = np.zeros((N, N))
+W = np.zeros((N, N)) # initial weight matrix
 
+# altering weight matrix manually
 # Feedforward
 
 W[0,2] = 6
@@ -66,7 +71,7 @@ W[6,9] = 4
 W[7,9] = 4
 W[8,9] = 4
 
-# Interneuron inhibition
+# Interneuron inhibition, only 1 for now, usually 20% inhibitory
 
 W[9,2] = -5
 W[9,3] = -5
@@ -77,10 +82,12 @@ W[9,6] = -4
 W[9,7] = -4
 
 W[9,8] = -3
+# more sophistication than a random connectivity network.
 
 # DELAYS
 
-delays = np.ones((N,N), dtype=int)
+delays = np.ones((N,N), dtype=int) 
+# dtype=int forces integer values instead of floating point numbers '1.' in array
 
 delays[0,2] = 2
 delays[0,3] = 3
@@ -96,12 +103,18 @@ delays[4,7] = 4
 delays[5,8] = 3
 delays[6,8] = 3
 delays[7,8] = 3
+# next time will generate delay values based on distance between neurons
+
+# most of these connections don't exist becaues their weights = 0, so
+# their delay values are never used.
 
 # EVENT QUEUE
 
 event_queue = [[] for _ in range(time_steps + 100)]
+# extra 100 time steps as buffer for delayed timesteps over 1000
 
 syn_current = np.zeros(N)
+# stores all incoming synaptic currents per time step
 
 # RECORDING
 
@@ -134,6 +147,8 @@ for t in range(time_steps):
     # background cortical noise
 
     I += np.random.normal(0,0.2,N)
+    # real neurons never set in perfect silence. 
+    # this noise term approximates the random fluctuations in input.
 
     # delayed arrivals
 
@@ -146,13 +161,7 @@ for t in range(time_steps):
 
     for i in range(N):
 
-        dv = (
-            0.04*v[i]**2
-            + 5*v[i]
-            + 140
-            - u[i]
-            + I[i]
-        )
+        dv = (0.04*v[i]**2 + 5*v[i] + 140 - u[i] + I[i])
 
         du = a[i]*(b[i]*v[i]-u[i])
 
@@ -253,9 +262,4 @@ plt.ylabel("Average Active Weight")
 plt.xlabel("Time")
 
 plt.tight_layout()
-plt.show()
-
-plt.figure()
-plt.plot(weight_history)
-plt.title("Weight 0→2")
 plt.show()

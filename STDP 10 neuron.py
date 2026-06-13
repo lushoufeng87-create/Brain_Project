@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# =====================================
 # PARAMETERS
-# =====================================
 
 N = 10
 
@@ -23,9 +21,7 @@ tau_minus = 20
 max_weight = 10
 min_weight = 0
 
-# =====================================
-# HETEROGENEOUS IZHIKEVICH NEURONS
-# =====================================
+# HETEROGENEOUS NEURONS
 
 a = np.random.normal(0.02, 0.002, N)
 b = np.random.normal(0.20, 0.01, N)
@@ -36,9 +32,7 @@ d = np.full(N, 8.0)
 v = c.copy()
 u = b * v
 
-# =====================================
 # STRUCTURED CONNECTIVITY
-# =====================================
 
 W = np.zeros((N, N))
 
@@ -65,7 +59,7 @@ W[5,2] = 2
 W[6,3] = 2
 W[7,4] = 2
 
-# Excitatory → inhibitory
+# Excitatory to inhibitory
 
 W[5,9] = 4
 W[6,9] = 4
@@ -86,9 +80,7 @@ W[9,8] = -3
 
 initial_W = W.copy()
 
-# =====================================
-# DELAYS
-# =====================================
+# DELAYS, CHANGE TO DISTANCE-BASED DELAYS LATER
 
 delays = np.ones((N,N), dtype=int)
 
@@ -107,23 +99,17 @@ delays[5,8] = 3
 delays[6,8] = 3
 delays[7,8] = 3
 
-# =====================================
 # EVENT QUEUE
-# =====================================
 
 event_queue = [[] for _ in range(time_steps + 100)]
 
 syn_current = np.zeros(N)
 
-# =====================================
 # STDP STORAGE
-# =====================================
 
 last_spike = np.full(N, -10000)
 
-# =====================================
 # RECORDING
-# =====================================
 
 spike_times = []
 spike_neurons = []
@@ -134,9 +120,7 @@ avg_weight_trace = []
 
 stdp_updates = 0
 
-# =====================================
 # MAIN SIMULATION
-# =====================================
 
 for t in range(time_steps):
 
@@ -160,9 +144,7 @@ for t in range(time_steps):
 
     spikes = []
 
-    # =================================
     # NEURON UPDATE
-    # =================================
 
     for i in range(N):
 
@@ -191,9 +173,7 @@ for t in range(time_steps):
             v[i] = c[i]
             u[i] += d[i]
 
-    # =================================
     # STDP
-    # =================================
 
     for neuron in spikes:
 
@@ -247,9 +227,7 @@ for t in range(time_steps):
 
         last_spike[neuron] = t
 
-    # =================================
     # PROPAGATE SPIKES
-    # =================================
 
     for source in spikes:
 
@@ -269,17 +247,13 @@ for t in range(time_steps):
                     )
                 )
 
-    # =================================
     # RECORDING
-    # =================================
 
     avg_weight_trace.append(
         np.mean(np.abs(W[W != 0]))
     )
 
-# =====================================
 # DIAGNOSTICS
-# =====================================
 
 print("\nSpike Counts")
 
@@ -292,15 +266,11 @@ print(stdp_updates)
 print("\nLargest Weight Change:")
 print(np.max(np.abs(W - initial_W)))
 
-# =====================================
 # PLOTS
-# =====================================
 
 plt.figure(figsize=(8, 8))
 
-# ---------------------
 # Spike raster
-# ---------------------
 
 plt.subplot(3,1,1)
 
@@ -313,9 +283,7 @@ plt.scatter(
 plt.ylabel("Neuron")
 plt.title("Spike Raster")
 
-# ---------------------
 # Average weight
-# ---------------------
 
 plt.subplot(3,1,2)
 
@@ -324,9 +292,7 @@ plt.plot(avg_weight_trace)
 plt.ylabel("Avg Weight")
 plt.title("Average Synaptic Strength")
 
-# ---------------------
 # Weight histogram
-# ---------------------
 
 plt.subplot(3,1,3)
 
