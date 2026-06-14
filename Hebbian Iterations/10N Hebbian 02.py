@@ -1,4 +1,4 @@
-# randomized Izhikevich network with hebbian Learning
+# RANDOMIZED Izhikevich network with hebbian Learning
 # heterogeneity added
 # transmission delays added
 

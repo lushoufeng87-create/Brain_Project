@@ -1,9 +1,12 @@
+# initial version of hebbian learning
+# Periods of widespread simultaneous firing are followed by quiet periods
+# caused by recovery-variable fatigue, after which the network resumes firing.
+# neurons are exactly the same
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-# ==========================
 # PARAMETERS
-# ==========================
 
 N = 10
 
@@ -16,16 +19,12 @@ decay = 0.95
 learning_rate = 0.001
 max_weight = 10
 
-# ==========================
 # NEURON STATES
-# ==========================
 
 v = np.full(N, -65.0)
 u = b * v
 
-# ==========================
 # CONNECTION MATRIX
-# ==========================
 
 W = np.random.normal(6, 1, (N, N))
 
@@ -36,24 +35,18 @@ np.fill_diagonal(W, 0)
 for i in [8, 9]:
     W[i, :] = -np.abs(W[i, :])
 
-# ==========================
 # SYNAPTIC CURRENTS
-# ==========================
 
 syn = np.zeros((N, N))
 
-# ==========================
 # RECORDING
-# ==========================
 
 spike_times = []
 spike_neurons = []
 
 avg_weight_trace = []
 
-# ==========================
 # SIMULATION
-# ==========================
 
 for t in range(time_steps):
 
@@ -74,9 +67,7 @@ for t in range(time_steps):
     # Track spikes
     spikes = []
 
-    # --------------------------
     # Update neurons
-    # --------------------------
 
     for i in range(N):
 
@@ -95,9 +86,7 @@ for t in range(time_steps):
             v[i] = c
             u[i] += d
 
-    # --------------------------
     # Send spikes
-    # --------------------------
 
     for source in spikes:
 
@@ -107,9 +96,7 @@ for t in range(time_steps):
 
                 syn[source, target] += W[source, target]
 
-    # --------------------------
     # Hebbian Learning
-    # --------------------------
 
     for source in spikes:
 
@@ -127,10 +114,7 @@ for t in range(time_steps):
 
     avg_weight_trace.append(np.mean(np.abs(W)))
 
-# ==========================
 # VISUALIZATION
-# ==========================
-
 plt.figure(figsize=(12,8))
 
 # Spike raster
@@ -157,9 +141,7 @@ plt.title("Hebbian Learning")
 plt.tight_layout()
 plt.show()
 
-# ==========================
 # FINAL WEIGHTS
-# ==========================
 
 print("\nFinal Weight Matrix:\n")
 print(np.round(W, 2))
