@@ -149,11 +149,7 @@ for t in range(time_steps):
     for i in range(N):
 
         dv = (
-            0.04*v[i]**2
-            + 5*v[i]
-            + 140
-            - u[i]
-            + I[i]
+            0.04*v[i]**2 + 5*v[i] + 140 - u[i] + I[i]
         )
 
         du = a[i]*(b[i]*v[i]-u[i])
