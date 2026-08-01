@@ -1,0 +1,129 @@
+Simulation Report
+
+STDP Updates: 59202
+Largest Weight Change: 7.2838
+Average Final Weight: 6.3177
+
+Spike Counts and Firing Rates
+Neuron 0: 23 spikes, 9.58 Hz
+Neuron 1: 22 spikes, 9.17 Hz
+Neuron 2: 16 spikes, 6.67 Hz
+Neuron 3: 34 spikes, 14.17 Hz
+Neuron 4: 42 spikes, 17.50 Hz
+Neuron 5: 22 spikes, 9.17 Hz
+Neuron 6: 56 spikes, 23.33 Hz
+Neuron 7: 83 spikes, 34.58 Hz
+Neuron 8: 78 spikes, 32.50 Hz
+Neuron 9: 102 spikes, 42.50 Hz
+Neuron 10: 73 spikes, 30.42 Hz
+Neuron 11: 8 spikes, 3.33 Hz
+Neuron 12: 58 spikes, 24.17 Hz
+Neuron 13: 25 spikes, 10.42 Hz
+Neuron 14: 21 spikes, 8.75 Hz
+Neuron 15: 29 spikes, 12.08 Hz
+Neuron 16: 37 spikes, 15.42 Hz
+Neuron 17: 37 spikes, 15.42 Hz
+Neuron 18: 9 spikes, 3.75 Hz
+Neuron 19: 10 spikes, 4.17 Hz
+Neuron 20: 61 spikes, 25.42 Hz
+Neuron 21: 63 spikes, 26.25 Hz
+Neuron 22: 183 spikes, 76.25 Hz
+Neuron 23: 152 spikes, 63.33 Hz
+Neuron 24: 154 spikes, 64.17 Hz
+Neuron 25: 357 spikes, 148.75 Hz
+Neuron 26: 556 spikes, 231.67 Hz
+Neuron 27: 361 spikes, 150.42 Hz
+Neuron 28: 591 spikes, 246.25 Hz
+Neuron 29: 212 spikes, 88.33 Hz
+Neuron 30: 211 spikes, 87.92 Hz
+Neuron 31: 216 spikes, 90.00 Hz
+Neuron 32: 131 spikes, 54.58 Hz
+Neuron 33: 117 spikes, 48.75 Hz
+Neuron 34: 48 spikes, 20.00 Hz
+Neuron 35: 121 spikes, 50.42 Hz
+Neuron 36: 70 spikes, 29.17 Hz
+Neuron 37: 81 spikes, 33.75 Hz
+Neuron 38: 5 spikes, 2.08 Hz
+Neuron 39: 31 spikes, 12.92 Hz
+Neuron 40: 26 spikes, 10.83 Hz
+Neuron 41: 51 spikes, 21.25 Hz
+Neuron 42: 99 spikes, 41.25 Hz
+Neuron 43: 98 spikes, 40.83 Hz
+Neuron 44: 194 spikes, 80.83 Hz
+Neuron 45: 187 spikes, 77.92 Hz
+Neuron 46: 133 spikes, 55.42 Hz
+Neuron 47: 161 spikes, 67.08 Hz
+Neuron 48: 155 spikes, 64.58 Hz
+Neuron 49: 59 spikes, 24.58 Hz
+Neuron 50: 102 spikes, 42.50 Hz
+Neuron 51: 121 spikes, 50.42 Hz
+Neuron 52: 46 spikes, 19.17 Hz
+Neuron 53: 71 spikes, 29.58 Hz
+Neuron 54: 80 spikes, 33.33 Hz
+Neuron 55: 90 spikes, 37.50 Hz
+Neuron 56: 77 spikes, 32.08 Hz
+Neuron 57: 31 spikes, 12.92 Hz
+Neuron 58: 31 spikes, 12.92 Hz
+Neuron 59: 90 spikes, 37.50 Hz
+Neuron 60: 99 spikes, 41.25 Hz
+Neuron 61: 116 spikes, 48.33 Hz
+Neuron 62: 98 spikes, 40.83 Hz
+Neuron 63: 356 spikes, 148.33 Hz
+Neuron 64: 366 spikes, 152.50 Hz
+Neuron 65: 398 spikes, 165.83 Hz
+Neuron 66: 639 spikes, 266.25 Hz
+Neuron 67: 173 spikes, 72.08 Hz
+Neuron 68: 104 spikes, 43.33 Hz
+Neuron 69: 233 spikes, 97.08 Hz
+Neuron 70: 168 spikes, 70.00 Hz
+Neuron 71: 273 spikes, 113.75 Hz
+Neuron 72: 287 spikes, 119.58 Hz
+Neuron 73: 264 spikes, 110.00 Hz
+Neuron 74: 151 spikes, 62.92 Hz
+Neuron 75: 48 spikes, 20.00 Hz
+Neuron 76: 71 spikes, 29.58 Hz
+Neuron 77: 63 spikes, 26.25 Hz
+Neuron 78: 36 spikes, 15.00 Hz
+Neuron 79: 18 spikes, 7.50 Hz
+Neuron 80: 26 spikes, 10.83 Hz
+Neuron 81: 9 spikes, 3.75 Hz
+Neuron 82: 19 spikes, 7.92 Hz
+Neuron 83: 6 spikes, 2.50 Hz
+Neuron 84: 5 spikes, 2.08 Hz
+Neuron 85: 5 spikes, 2.08 Hz
+Neuron 86: 6 spikes, 2.50 Hz
+Neuron 87: 6 spikes, 2.50 Hz
+Neuron 88: 5 spikes, 2.08 Hz
+Neuron 89: 5 spikes, 2.08 Hz
+Neuron 90: 6 spikes, 2.50 Hz
+Neuron 91: 5 spikes, 2.08 Hz
+Neuron 92: 5 spikes, 2.08 Hz
+Neuron 93: 5 spikes, 2.08 Hz
+Neuron 94: 6 spikes, 2.50 Hz
+Neuron 95: 7 spikes, 2.92 Hz
+Neuron 96: 6 spikes, 2.50 Hz
+Neuron 97: 8 spikes, 3.33 Hz
+Neuron 98: 6 spikes, 2.50 Hz
+Neuron 99: 5 spikes, 2.08 Hz
+
+Top 20 Strongest Connections
+43->44: 10.000
+46->45: 10.000
+24->25: 10.000
+24->26: 10.000
+49->48: 10.000
+27->26: 10.000
+27->28: 10.000
+28->26: 10.000
+29->27: 10.000
+29->28: 10.000
+30->26: 10.000
+30->28: 10.000
+62->63: 10.000
+62->64: 10.000
+62->66: 10.000
+32->31: 10.000
+64->63: 10.000
+67->66: 10.000
+69->66: 10.000
+70->71: 10.000
